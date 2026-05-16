@@ -1,6 +1,6 @@
 # AI-Powered Government Schemes Advisor
 
-> Personalized scheme discovery for Indian citizens. Ask in Hindi, get matches in seconds.
+> Personalized scheme discovery for Indian citizens. Ask in English, Hindi, Kannada, get matches in seconds.
 
 ---
 
