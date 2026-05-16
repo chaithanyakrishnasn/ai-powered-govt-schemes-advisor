@@ -8,10 +8,6 @@
 
 Millions of Indian citizens miss out on crucial government benefits simply because they don't know what they qualify for or find the eligibility rules too complex to parse. This platform solves this by allowing users to describe their situation in their native language (English, Hindi, or Kannada) and instantly receive personalized, reasoning-backed scheme matches from a curated database of state and central programs.
 
-## Demo
-
-*(See `demo/` folder for screenshots and sample profiles)*
-
 ---
 
 ## Architecture

@@ -1,14 +1,5 @@
 # Demo
 
-## Screenshots
-
-[Add screenshots of:]
-1. Landing page
-2. Profile wizard (step 2)
-3. Results page with scheme cards
-4. Explanation panel open
-5. Chat interface with Hindi
-
 ## Sample profiles for testing
 
 ### Karnataka Farmer
