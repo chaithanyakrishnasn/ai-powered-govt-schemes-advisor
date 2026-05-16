@@ -12,6 +12,10 @@ env/
 dist/
 build/
 *.so
+.claude/
+
+CLAUDE.md
+GEMINI.md
 
 # uv
 uv.lock
