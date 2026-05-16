@@ -1,0 +1,9 @@
+{
+    "age": 42,
+    "gender": "male",
+    "state": "Karnataka",
+    "is_farmer": true,
+    "land_holding_acres": 2,
+    "annual_income": 150000,
+    "caste_category": "OBC"
+}

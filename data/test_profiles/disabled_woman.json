@@ -1,0 +1,8 @@
+{
+    "age": 55,
+    "gender": "female",
+    "state": "Karnataka",
+    "has_disability": true,
+    "disability_percentage": 60,
+    "annual_income": 120000
+}

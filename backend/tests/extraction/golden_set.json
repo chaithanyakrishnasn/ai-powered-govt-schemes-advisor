@@ -1,0 +1,878 @@
+[
+  {
+    "id": "gs-01",
+    "slug": "us",
+    "scheme_name": "Udyogini Scheme",
+    "ministry": "Woman and Child Development Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. The applicant should be a woman.\n1. The family income of the applicant should be less than ₹ 1,50,000/- for women belonging to general and special categories. No limit on family income for widowed or disabled women.\n1. The age of the applicant should be between 18 to 55 years for all categories.\n1. The applicant should be a permanent resident of Karnataka.\n1. The applicant should not have defaulted on any past loan with any financial institution.",
+    "notes": "Main income limit 1.5L applies to general/special. Widowed/disabled have no income cap — creates a conditional that can't fit neatly; label main rule and put exception in unstructured. Loan default criterion is unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "gender",
+          "operator": "eq",
+          "value": {"value": "female"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Applicant must be a woman",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "income",
+          "operator": "lt",
+          "value": {"value": 150000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Family income less than Rs 1,50,000 (general/special categories)",
+          "confidence": 0.90
+        },
+        {
+          "rule_type": "age",
+          "operator": "between",
+          "value": {"min": 18, "max": 55},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Age between 18 and 55 years",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Permanent resident of Karnataka",
+          "confidence": 0.98
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.9
+    }
+  },
+  {
+    "id": "gs-02",
+    "slug": "aels",
+    "scheme_name": "Arivu Education Loan Scheme",
+    "ministry": "Minorities Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. The student should belong to the State Religious Minority Community.\n1. The student should be a permanent resident of the State.\n1. The annual income of the family should not exceed ₹8,00,000/-.",
+    "notes": "Simple 3-rule case. Religion=minority, state=Karnataka, income<=800000.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "religion",
+          "operator": "eq",
+          "value": {"value": "minority"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Applicant must belong to State Religious Minority Community",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Permanent resident of Karnataka",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 800000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual family income not exceeding Rs 8,00,000",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": false,
+      "overall_confidence": 0.95
+    }
+  },
+  {
+    "id": "gs-03",
+    "slug": "slg",
+    "scheme_name": "Stipend To Law Graduates",
+    "ministry": "Social Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. Applicant should be a resident of Karnataka state.\n1. Applicant should belong to the  SC/ST Community.\n1. Family income from all sources should be within Rs. 2 lakhs per annum.\n1. Maximum age limit allowed is 40 years.\n1. Law degree holder from any State/Central Government recognized University/Institution\n1. Duration of the Law Course should be either 3 years or 5 years",
+    "notes": "SC/ST caste, age lte 40, income 2L, state Karnataka, education=law_degree.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Resident of Karnataka",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "caste_category",
+          "operator": "in",
+          "value": {"in": ["SC", "ST"]},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Belongs to SC or ST community",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 200000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual family income within Rs 2 lakhs",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "age",
+          "operator": "lte",
+          "value": {"value": 40},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Maximum age 40 years",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "education_level",
+          "operator": "eq",
+          "value": {"value": "law_degree"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Law degree holder (3-year or 5-year) from recognized institution",
+          "confidence": 0.88
+        }
+      ],
+      "has_unstructured_remainder": false,
+      "overall_confidence": 0.94
+    }
+  },
+  {
+    "id": "gs-04",
+    "slug": "iftsmst",
+    "scheme_name": "Incentive For The Simple Marriage (Scheduled Tribe)",
+    "ministry": "Tribal Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. The couple should be residing in Karnataka.\n1. Both partners should belong to the Scheduled Tribe community.\n1. The combined annual income of the couple should be less than ₹2,00,000/-.\n1. The application should be submitted within one year of marriage.\n1. The marriage should have taken place on or after 11th August 2015.",
+    "notes": "ST caste, state, income<200000. Marriage timing criteria are procedural/unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Couple must reside in Karnataka",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "caste_category",
+          "operator": "in",
+          "value": {"in": ["ST"]},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Both partners must belong to Scheduled Tribe community",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "income",
+          "operator": "lt",
+          "value": {"value": 200000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Combined annual income less than Rs 2,00,000",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.93
+    }
+  },
+  {
+    "id": "gs-05",
+    "slug": "iftsm",
+    "scheme_name": "Incentive For The Simple Marriage",
+    "ministry": "Social Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. Karnataka State Resident: The applicant must be a resident of Karnataka state.\n1. SC Community: The applicant must belong to the SC community.\n1. Family Income: The family income from all sources should not exceed Rs. 2 lakhs per annum.\n1. Time Limit: The scheme is applicable only within 1 year of the marriage.",
+    "notes": "SC, state, income<=200000. Time limit is unstructured/procedural.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Resident of Karnataka state",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "caste_category",
+          "operator": "in",
+          "value": {"in": ["SC"]},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Belongs to SC community",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 200000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual family income not exceeding Rs 2 lakhs",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.94
+    }
+  },
+  {
+    "id": "gs-06",
+    "slug": "gls",
+    "scheme_name": "Griha Lakshmi Scheme",
+    "ministry": "Woman and Child Development Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "- The applicant should be a woman.\n\n- The applicant should be listed as the head of the family on the ration card.\n- The applicant should be the head of the family as per the ration card (BPL or APL).\n- The family of the applicant should be a resident of Karnataka.",
+    "notes": "gender=female, state=Karnataka. Head-of-family on ration card is a custom/procedural criterion.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "gender",
+          "operator": "eq",
+          "value": {"value": "female"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Applicant must be a woman",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Family must be a resident of Karnataka",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.9
+    }
+  },
+  {
+    "id": "gs-07",
+    "slug": "sss",
+    "scheme_name": "Shrama Shakthi Scheme",
+    "ministry": "Minorities Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. The age limit of the applicant should be between 18 and 55 years.\n1. The applicant must be a permanent resident of the State.\n1. Applicants must belong to State Religious Minority Community.\n1. Family income from all sources should be within Rs. 3.50 lakh per annum.\n1. An applicant or his/her family members should not have availed benefits under any other scheme (Excluding the Arivu Scheme) of the KMDCL in the last 5 years.",
+    "notes": "age 18-55, state, religion=minority, income<=350000. Prior-benefit exclusion is unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "age",
+          "operator": "between",
+          "value": {"min": 18, "max": 55},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Age between 18 and 55 years",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Permanent resident of Karnataka",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "religion",
+          "operator": "eq",
+          "value": {"value": "minority"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Belongs to State Religious Minority Community",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 350000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual family income within Rs 3.50 lakh",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.94
+    }
+  },
+  {
+    "id": "gs-08",
+    "slug": "cbts",
+    "scheme_name": "Community Based Training Scheme",
+    "ministry": "Minorities Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. The applicant should belong to the religious minority community of the state.\n1. The applicant should be a permanent resident of Karnataka.\n1. The applicant's age should be between 18 to 35 years. \n1. The annual income of the applicant's family from all sources should be less than ₹1,03,000/- in urban areas and less than ₹96,000/- in rural areas.\n1. The selected applicants should compulsorily complete the training.\n1. The applicant must have a minimum qualification of SSLC.\n1. The applicant should not have previously taken training in any schemes of the state or central government.",
+    "notes": "religion, state, age 18-35. Income split by urban/rural = OR groups. Education (SSLC) is structured. Prior-training exclusion is unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "religion",
+          "operator": "eq",
+          "value": {"value": "minority"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Belongs to religious minority community",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Permanent resident of Karnataka",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "age",
+          "operator": "between",
+          "value": {"min": 18, "max": 35},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Age between 18 and 35 years",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "income",
+          "operator": "lt",
+          "value": {"value": 103000},
+          "logic_group": 1,
+          "group_operator": "OR",
+          "is_required": true,
+          "description": "Urban: annual family income less than Rs 1,03,000",
+          "confidence": 0.90
+        },
+        {
+          "rule_type": "income",
+          "operator": "lt",
+          "value": {"value": 96000},
+          "logic_group": 2,
+          "group_operator": "OR",
+          "is_required": true,
+          "description": "Rural: annual family income less than Rs 96,000",
+          "confidence": 0.90
+        },
+        {
+          "rule_type": "education_level",
+          "operator": "eq",
+          "value": {"value": "SSLC"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Minimum qualification: SSLC",
+          "confidence": 0.88
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.9
+    }
+  },
+  {
+    "id": "gs-09",
+    "slug": "dpaexgkbocwwb",
+    "scheme_name": "Disability Pension and Ex-Gratia (K.B.O.C.W.W.B)",
+    "ministry": "Labour Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "For Registration as a Building/ Construction Worker:\n- The applicant should be a Building/ Construction Worker (Unorganised Worker).\n- The applicant should be a minimum of 18 years of age.\n- The applicant should have engaged in building and construction work for at least 90 days in a given year.\n\nFor the Application of the Welfare Scheme:\n- The applicant should be a registered construction worker Under the Building and Other Construction Workers Welfare Board of Karnataka.\n- The applicant should be partially disabled due to worksite accidents or diseases.\n- The applicant should not have availed \"Accident Benefits\" for the same disability.\n- The applicant must be below sixty (60) years of age.",
+    "notes": "Two-phase eligibility. occupation, age>=18, has_disability, age<60. 90-day work requirement and prior-benefit exclusion are unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "occupation",
+          "operator": "eq",
+          "value": {"value": "construction_worker"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Applicant is a building/construction worker (unorganised sector)",
+          "confidence": 0.93
+        },
+        {
+          "rule_type": "age",
+          "operator": "gte",
+          "value": {"value": 18},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Minimum age 18 years",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "has_disability",
+          "operator": "eq",
+          "value": {"value": true},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Partially disabled due to worksite accident or disease",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "age",
+          "operator": "lt",
+          "value": {"value": 60},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Must be below 60 years of age",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.9
+    }
+  },
+  {
+    "id": "gs-10",
+    "slug": "isfsr",
+    "scheme_name": "Incentive Scheme for Sericulture Reelers",
+    "ministry": "Minorities Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. The applicant should belong to the religious minority category of the state.\n1. The applicant should be a permanent resident of the state.\n1. The applicant's age should be between 18 to 55 years.\n1. The family income from all sources should not exceed more than ₹6,00,000/-\n1. No member of the applicant's family should be a State/Central Government employee.\n1. The applicant or his family members should not have availed of any loan/subsidy facility from the Corporation in the last 5 years except the Arivu education loan and Foreign Education Loan Scheme.",
+    "notes": "religion, state, age 18-55, income<=600000. Government-employee exclusion and prior-loan exclusion are unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "religion",
+          "operator": "eq",
+          "value": {"value": "minority"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Belongs to religious minority community",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Permanent resident of Karnataka",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "age",
+          "operator": "between",
+          "value": {"min": 18, "max": 55},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Age between 18 and 55 years",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 600000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual family income not exceeding Rs 6,00,000",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.93
+    }
+  },
+  {
+    "id": "gs-11",
+    "slug": "oels",
+    "scheme_name": "Overseas Educational Loan Scheme",
+    "ministry": "Minorities Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. The student should be a resident of Karnataka State.\n1. The student should belong to a minority community (Muslim, Christian, Jain, Buddhist, Sikh and Parsi).\n1. The student should have secured at least 60% marks in the previous year.\n1. The student should have received an offer letter from a foreign university.\n1. Loans will be provided only on mortgage of property (building/land) to the corporation. The value of the property should not be less than the loan amount.\n1. The students who have not received a scholarship from the Directorate of Minorities.",
+    "notes": "state, religion in explicit list. 60% marks = education_level custom. Offer letter, mortgage, scholarship exclusion are unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Resident of Karnataka",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "religion",
+          "operator": "in",
+          "value": {"in": ["Muslim", "Christian", "Jain", "Buddhist", "Sikh", "Parsi"]},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Belongs to minority community (Muslim/Christian/Jain/Buddhist/Sikh/Parsi)",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.85
+    }
+  },
+  {
+    "id": "gs-12",
+    "slug": "iss",
+    "scheme_name": "Interest Subvention Scheme",
+    "ministry": "Finance Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. Enterprises promoted by all categories of borrowers, proprietary concerns, partnership firms, companies & other legal entities.\n   1. The scheme is extended for all new investments in building, plant and machinery directly involved in production by new enterprises and existing enterprises by way of expansion, diversification, modernization and technology up-gradation etc., considering the gross block of plant and machineries.\n   1. The unit which has already availed the interest subsidy under any other scheme of Government of Karnataka / Government of India are also not eligible for interest subsidy under this scheme.\n   1. The enterprise will be eligible for 5.5% p.a. interest subvention for a maximum period of five years from the date of first disbursement of respective loans even if the repayment period exceeds beyond five years.",
+    "notes": "Enterprise scheme — no individual eligibility criteria. Everything is unstructured/benefit text.",
+    "expected": {
+      "rules": [],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.5
+    }
+  },
+  {
+    "id": "gs-13",
+    "slug": "pdos",
+    "scheme_name": "Prabhuddha Overseas Scholarship",
+    "ministry": "Social Welfare Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "1. Residency: The applicant should be a permanent resident of Karnataka state in India.\n1. Age Limit: The age limit to apply for this scheme is 21 years for undergraduate courses, and 35 years for postgraduate and doctoral programs.\n1. Qualifying Marks: Candidates applying for the scholarship must have scored at least 55% marks or equivalent grade in their qualifying degree exams for postgraduate and doctoral courses, and 80% marks or equivalent grade in qualifying exams (PUC/12th class) for undergraduate courses.\n1. Standardized Test Scores: The candidates should have cleared standardized tests like GRE/GMAT/TOEFL/IELTS exams with minimum score marks before applying for the scholarship.\n1. Admission: Applicants should have secured admission into a full-time degree program at an overseas university/college.",
+    "notes": "state, age split by course level (UG=21, PG/doctoral=35) in OR groups. Marks, tests, admission are unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Karnataka"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Permanent resident of Karnataka",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "age",
+          "operator": "lte",
+          "value": {"value": 21},
+          "logic_group": 1,
+          "group_operator": "OR",
+          "is_required": true,
+          "description": "Age limit 21 years for undergraduate courses",
+          "confidence": 0.88
+        },
+        {
+          "rule_type": "age",
+          "operator": "lte",
+          "value": {"value": 35},
+          "logic_group": 2,
+          "group_operator": "OR",
+          "is_required": true,
+          "description": "Age limit 35 years for postgraduate/doctoral programs",
+          "confidence": 0.88
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.85
+    }
+  },
+  {
+    "id": "gs-14",
+    "slug": "kbocwwb",
+    "scheme_name": "Pension Scheme (K.B.O.C.W.W.B)",
+    "ministry": "Labour Department",
+    "level": "state",
+    "state": "Karnataka",
+    "eligibility_text": "For Registration as a Building/Construction Worker:\n- The applicant should be a Building/Construction Worker (Unorganised Worker).\n- The applicant should be a minimum of 18 years of age.\n- The applicant should have engaged in building and construction work for at least 90 days in a given year.\n\nFor the Application of the Welfare Scheme:\n- The applicant should be a registered construction worker Under the Building and Other Construction Workers Welfare Board of Karnataka.\n- The worker must have reached 60 years of age.\n- The worker must have been a beneficiary of the Board for at least 3 consecutive years before turning 60 years of age.\n- The worker must not be availing similar benefits from any other government schemes.",
+    "notes": "occupation, age>=18, age>=60 (pension trigger). 90-day, 3-year membership, prior-benefit exclusion are unstructured.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "occupation",
+          "operator": "eq",
+          "value": {"value": "construction_worker"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Building/construction worker (unorganised sector)",
+          "confidence": 0.93
+        },
+        {
+          "rule_type": "age",
+          "operator": "gte",
+          "value": {"value": 18},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Minimum age 18 years (registration requirement)",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "age",
+          "operator": "gte",
+          "value": {"value": 60},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Must have reached 60 years of age to receive pension",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.88
+    }
+  },
+  {
+    "id": "gs-15",
+    "slug": "synthetic-vague",
+    "scheme_name": "Discretionary Relief Scheme",
+    "ministry": "Revenue Department",
+    "level": "state",
+    "state": "Rajasthan",
+    "eligibility_text": "As per government norms and subject to availability of funds. Priority will be given to BPL families and those affected by natural calamities.",
+    "notes": "Vague/empty eligibility — should produce 0 rules with high unstructured remainder.",
+    "expected": {
+      "rules": [],
+      "has_unstructured_remainder": true,
+      "overall_confidence": 0.4
+    }
+  },
+  {
+    "id": "gs-16",
+    "slug": "synthetic-hindi",
+    "scheme_name": "Kisan Sahay Yojana",
+    "ministry": "Agriculture Department",
+    "level": "state",
+    "state": "Rajasthan",
+    "eligibility_text": "आवेदक की आयु 18 से 60 वर्ष के बीच होनी चाहिए। Annual family income should not exceed ₹2,50,000. Applicant should be a resident of Rajasthan state. आवेदक एक किसान होना चाहिए।",
+    "notes": "Hindi-English mixed. age 18-60, income<=250000, state=Rajasthan, is_farmer=true.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "age",
+          "operator": "between",
+          "value": {"min": 18, "max": 60},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Age between 18 and 60 years",
+          "confidence": 0.90
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 250000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual family income not exceeding Rs 2,50,000",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Rajasthan"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Resident of Rajasthan",
+          "confidence": 0.95
+        },
+        {
+          "rule_type": "is_farmer",
+          "operator": "eq",
+          "value": {"value": true},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Applicant must be a farmer",
+          "confidence": 0.88
+        }
+      ],
+      "has_unstructured_remainder": false,
+      "overall_confidence": 0.9
+    }
+  },
+  {
+    "id": "gs-17",
+    "slug": "synthetic-disability-pct",
+    "scheme_name": "Viklang Sahayata Yojana",
+    "ministry": "Social Welfare Department",
+    "level": "state",
+    "state": "Uttar Pradesh",
+    "eligibility_text": "Applicant must have a minimum 40% physical disability as certified by a competent medical authority. Age should not exceed 55 years. Must be a resident of Uttar Pradesh. Annual family income should not exceed Rs. 1,00,000.",
+    "notes": "disability_percentage>=40, has_disability=true, age<=55, state=UP, income<=100000.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "has_disability",
+          "operator": "eq",
+          "value": {"value": true},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Applicant must have a physical disability",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "disability_percentage",
+          "operator": "gte",
+          "value": {"value": 40},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Minimum 40% disability certified by medical authority",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "age",
+          "operator": "lte",
+          "value": {"value": 55},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Age not exceeding 55 years",
+          "confidence": 0.98
+        },
+        {
+          "rule_type": "state",
+          "operator": "eq",
+          "value": {"value": "Uttar Pradesh"},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Resident of Uttar Pradesh",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 100000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual family income not exceeding Rs 1,00,000",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": false,
+      "overall_confidence": 0.95
+    }
+  },
+  {
+    "id": "gs-18",
+    "slug": "synthetic-farmer-land",
+    "scheme_name": "Small Farmer Support Scheme",
+    "ministry": "Agriculture Department",
+    "level": "central",
+    "state": null,
+    "eligibility_text": "Applicable to small and marginal farmers with land holding up to 5 acres. Applicant must be a citizen of India. Must be engaged in cultivation as principal occupation. Age between 21 and 65 years. Annual household income should not exceed Rs 1,50,000.",
+    "notes": "is_farmer, land<=5.0 acres, age 21-65, income<=150000, no state filter.",
+    "expected": {
+      "rules": [
+        {
+          "rule_type": "is_farmer",
+          "operator": "eq",
+          "value": {"value": true},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Small/marginal farmer engaged in cultivation as principal occupation",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "land_holding_acres",
+          "operator": "lte",
+          "value": {"value": 5.0},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Land holding up to 5 acres",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "age",
+          "operator": "between",
+          "value": {"min": 21, "max": 65},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Age between 21 and 65 years",
+          "confidence": 0.97
+        },
+        {
+          "rule_type": "income",
+          "operator": "lte",
+          "value": {"value": 150000},
+          "logic_group": 0,
+          "group_operator": "AND",
+          "is_required": true,
+          "description": "Annual household income not exceeding Rs 1,50,000",
+          "confidence": 0.97
+        }
+      ],
+      "has_unstructured_remainder": false,
+      "overall_confidence": 0.96
+    }
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "nav": {
+    "home": "Home",
+    "findSchemes": "Find Schemes",
+    "chat": "Chat",
+    "language": "Language"
+  },
+  "home": {
+    "headline": "Find Government Schemes You Qualify For",
+    "subheadline": "Answer a few questions and discover personalized government benefits in seconds",
+    "cta": "Get Started",
+    "features": {
+      "personalized": {
+        "title": "Personalized Matching",
+        "description": "We analyze your profile against 300+ government schemes to find your best matches"
+      },
+      "explained": {
+        "title": "Plain Language Explanations",
+        "description": "Understand exactly why you qualify and what steps to take next"
+      },
+      "multilingual": {
+        "title": "Multiple Languages",
+        "description": "Available in English, Hindi, and Kannada"
+      }
+    },
+    "stats": {
+      "schemes": "334+ Schemes",
+      "states": "15+ States",
+      "categories": "10+ Categories"
+    }
+  },
+  "profile": {
+    "title": "Tell Us About Yourself",
+    "subtitle": "We use this to find schemes you qualify for",
+    "step": "Step {current} of {total}",
+    "wizard": {
+      "steps": {
+        "basic": "Basic Info",
+        "economic": "Economic",
+        "social": "Social",
+        "health": "Health & Other"
+      },
+      "fields": {
+        "age": "Age",
+        "gender": "Gender",
+        "state": "State",
+        "district": "District",
+        "annualIncome": "Annual Income (₹)",
+        "occupation": "Occupation",
+        "employmentStatus": "Employment Status",
+        "isFarmer": "Are you a farmer?",
+        "landHolding": "Land Holding (acres)",
+        "casteCategory": "Caste Category",
+        "religion": "Religion",
+        "maritalStatus": "Marital Status",
+        "educationLevel": "Education Level",
+        "familySize": "Family Size",
+        "hasDisability": "Do you have a disability?",
+        "disabilityPercentage": "Disability Percentage (%)",
+        "preferredLanguage": "Preferred Language"
+      },
+      "nav": {
+        "back": "Back",
+        "next": "Next",
+        "submit": "Find My Schemes",
+        "submitting": "Finding schemes..."
+      },
+      "summary": {
+        "title": "Your Profile Summary",
+        "notProvided": "Not provided"
+      }
+    }
+  },
+  "results": {
+    "title": "Your Scheme Matches",
+    "subtitle": "{count} schemes found for your profile",
+    "eligible": "Eligible",
+    "likelyEligible": "Likely Eligible",
+    "needMoreInfo": "Need More Info",
+    "notEligible": "Not Eligible",
+    "applyNow": "Apply Now",
+    "learnMore": "Learn More",
+    "summary": "{total} schemes found · {eligible} eligible · {likely} likely eligible",
+    "latency": "Searched {count} schemes in {ms}ms",
+    "explainAll": "Explain All Matches",
+    "explain": "Explain",
+    "apply": "Apply Now",
+    "applyUnavailable": "No application link",
+    "showIneligible": "Show ineligible schemes ({count})",
+    "hideIneligible": "Hide ineligible schemes",
+    "searchPlaceholder": "Search schemes, e.g. dairy farming subsidy...",
+    "noResults": "No schemes found",
+    "noResultsHint": "Try adjusting your profile or search query",
+    "editProfile": "Edit Profile",
+    "generatingExplanation": "Generating explanation...",
+    "confidence": "Confidence: {value}%",
+    "missingFields": "To confirm eligibility, provide: {fields}",
+    "keyBenefits": "Key Benefits",
+    "nextSteps": "Next Steps",
+    "whatToGather": "What to Gather",
+    "viewDetails": "View Full Details",
+    "status": "Status:",
+    "level": "Level:",
+    "score": "Score:",
+    "selectSchemePrompt": "Select a scheme to view its detailed explanation and next steps.",
+    "explainPrompt": "Click \"Explain\" on the card to generate personalized reasoning.",
+    "filters": {
+      "all": "All",
+      "eligible": "Eligible",
+      "likelyEligible": "Likely Eligible",
+      "central": "Central",
+      "state": "State"
+    }
+  },
+  "chat": {
+    "title": "Ask About Schemes",
+    "placeholder": "Ask me about government schemes...",
+    "send": "Send",
+    "welcome": "Welcome to Yojana AI",
+    "welcomeSubtitle": "Ask me about government schemes",
+    "profileLoaded": "Profile loaded · {state}",
+    "noProfile": "Complete your profile for personalized results",
+    "completeProfile": "Complete Profile",
+    "suggestions": {
+      "farming": "What farming schemes am I eligible for?",
+      "scholarship": "Education scholarships for SC/ST students",
+      "disability": "Disability assistance schemes",
+      "pmkisan": "How do I apply for PM Kisan?"
+    },
+    "inputPlaceholder": "Ask about government schemes...",
+    "thinking": "Yojana AI is thinking...",
+    "searching": "Searching {count} schemes...",
+    "found": "Found {count} matching schemes",
+    "generating": "Generating personalized explanations...",
+    "results": "Here are your top recommendations:",
+    "noResults": "No matching schemes found. Try a different query.",
+    "error": "Something went wrong. Please try again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong. Please try again.",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "skip": "Skip"
+  },
+  "footer": {
+    "tagline": "Helping citizens discover government benefits",
+    "disclaimer": "Educational project. Verify scheme details on official government portals."
+  }
+}

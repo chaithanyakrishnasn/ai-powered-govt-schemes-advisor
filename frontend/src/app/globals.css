@@ -1,0 +1,92 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand */
+    --accent: 234 89% 60%;          /* indigo-500 */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Surfaces */
+    --background: 0 0% 100%;
+    --surface: 210 40% 98%;         /* slate-50 */
+    --surface-elevated: 0 0% 100%;  /* white cards */
+    --border: 214 32% 91%;          /* slate-200 */
+    --border-strong: 215 20% 65%;   /* slate-400 */
+    
+    /* Text */
+    --foreground: 222 47% 11%;      /* slate-900 */
+    --muted: 210 40% 98%;           /* slate-50 */
+    --muted-foreground: 215 16% 47%;/* slate-500 */
+    --subtle: 215 20% 65%;          /* slate-400 */
+    
+    /* Status (semantic) */
+    --eligible: 142 71% 45%;        /* green-500 */
+    --eligible-bg: 142 76% 97%;     /* green-50 */
+    --likely: 38 92% 50%;           /* amber-500 */
+    --likely-bg: 48 96% 95%;        /* amber-50 */
+    --info: 214 32% 91%;            /* slate-200 */
+    --info-bg: 210 40% 98%;         /* slate-50 */
+    --danger: 0 84% 60%;            /* red-500 */
+    --danger-bg: 0 86% 97%;         /* red-50 */
+    
+    /* Spacing rhythm */
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+
+    /* Shadcn core variables to maintain compatibility */
+    --primary: 234 89% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 234 89% 60%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --input: 214.3 31.8% 91.4%;
+  }
+
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-noto-sans), var(--font-noto-devanagari), var(--font-noto-kannada), system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  html {
+    @apply font-sans;
+  }
+  
+  h1 { @apply text-4xl font-bold tracking-tight; }
+  h2 { @apply text-2xl font-semibold tracking-tight; }
+  h3 { @apply text-lg font-semibold; }
+  p  { @apply text-base leading-relaxed; }
+
+  * {
+    @apply border-border;
+  }
+
+  /* Enhance default form inputs to ensure premium feel everywhere */
+  input[type="text"], input[type="number"], input[type="email"], input[type="password"], select, textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/20 focus-visible:border-indigo-500 transition-colors;
+  }
+}
+
+.hero-bg {
+  background: 
+    radial-gradient(ellipse at 20% 50%, hsl(234 89% 95%) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, hsl(234 89% 92%) 0%, transparent 40%),
+    white;
+}
