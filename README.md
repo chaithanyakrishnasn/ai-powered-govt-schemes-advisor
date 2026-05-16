@@ -2,8 +2,6 @@
 
 > Personalized scheme discovery for Indian citizens. Ask in Hindi, get matches in seconds.
 
-[Live Demo](https://yojana-ai.vercel.app) | [Backend API](https://yojana-backend.onrender.com/docs)
-
 ---
 
 ## What it does
@@ -31,12 +29,12 @@ Millions of Indian citizens miss out on crucial government benefits simply becau
            ▼
   ┌─────────────────────────────────────────────────────┐
   │              Next.js 15 Frontend                    │
-  │  ┌──────────┐  ┌─────────────┐  ┌───────────────┐  │
-  │  │ Profile  │  │   Results   │  │     Chat      │  │
-  │  │ Wizard   │  │   Page +    │  │  Interface    │  │
-  │  │ (4-step) │  │ Explanation │  │  (SSE stream) │  │
-  │  └──────────┘  └─────────────┘  └───────────────┘  │
-  │  Zustand · TanStack Query · next-intl (EN/HI/KN)   │
+  │  ┌──────────┐  ┌─────────────┐  ┌───────────────┐   │
+  │  │ Profile  │  │   Results   │  │     Chat      │   │
+  │  │ Wizard   │  │   Page +    │  │  Interface    │   │
+  │  │ (4-step) │  │ Explanation │  │  (SSE stream) │   │
+  │  └──────────┘  └─────────────┘  └───────────────┘   │
+  │  Zustand · TanStack Query · next-intl (EN/HI/KN)    │
   └────────────────────────┬────────────────────────────┘
                            │ REST + SSE
                            ▼
@@ -70,11 +68,11 @@ Millions of Indian citizens miss out on crucial government benefits simply becau
   │  └──────────────────────────────────────────────┘   │
   │                                                     │
   │  ┌─────────────────┐  ┌──────────────────────────┐  │
-  │  │  Multilingual   │  │    Eligibility Extractor  │  │
-  │  │  Layer          │  │    (offline pipeline)     │  │
-  │  │  ├─ Unicode     │  │    ├─ Gemini + Instructor  │  │
-  │  │  │  detection   │  │    ├─ Structured rules     │  │
-  │  │  └─ Query       │  │    └─ Confidence scores    │  │
+  │  │  Multilingual   │  │    Eligibility Extractor │  │
+  │  │  Layer          │  │    (offline pipeline)    │  │
+  │  │  ├─ Unicode     │  │    ├─ Gemini + Instructor│  │
+  │  │  │  detection   │  │    ├─ Structured rules   │  │
+  │  │  └─ Query       │  │    └─ Confidence scores  │  │
   │  │    translation  │  └──────────────────────────┘  │
   │  └─────────────────┘                                │
   └────────────────────┬────────────────────────────────┘
@@ -239,18 +237,18 @@ uv run uvicorn app.main:app --reload
    - `GEMINI_API_KEY` = your key
    - `DATABASE_URL` = Supabase connection string
 4. Deploy — first deploy runs migrations automatically
-5. Note your backend URL: `https://yojana-backend.onrender.com`
+5. Note your backend service URL for the frontend configuration.
 
 ### Step 3: Frontend (Vercel)
 1. Import repo at vercel.com
 2. Framework: Next.js (auto-detected)
 3. Root directory: `frontend`
-4. Environment variable: `NEXT_PUBLIC_API_URL` = `https://yojana-backend.onrender.com/api/v1`
+4. Environment variable: `NEXT_PUBLIC_API_URL` = `<your-backend-url>/api/v1`
 5. Deploy
 
 ### Step 4: Update CORS
 After getting your Vercel URL, update `CORS_ORIGINS` in Render environment variables:
-`["https://your-app.vercel.app", "http://localhost:3000"]`
+`["https://<your-frontend-domain>.vercel.app", "http://localhost:3000"]`
 
 ---
 
@@ -267,13 +265,13 @@ The project relies on a robust data ingestion pipeline designed to extract struc
 
 ## API Reference
 
-Base URL: `https://yojana-backend.onrender.com/api/v1`
+Base URL: `http://localhost:8000/api/v1`
 Interactive docs: `/docs`
 
 ### Match schemes to a profile
 
 ```bash
-curl -X POST https://yojana-backend.onrender.com/api/v1/match \
+curl -X POST http://localhost:8000/api/v1/match \
   -H "Content-Type: application/json" \
   -d '{
     "profile": {
@@ -292,14 +290,14 @@ curl -X POST https://yojana-backend.onrender.com/api/v1/match \
 ### Stream results with explanations
 
 ```bash
-curl -N "https://yojana-backend.onrender.com/api/v1/match/stream\
+curl -N "http://localhost:8000/api/v1/match/stream\
 ?profile_id=<uuid>&query=farming+schemes&explain=true"
 ```
 
 ### Get scheme details
 
 ```bash
-curl https://yojana-backend.onrender.com/api/v1/schemes/pm-kisan
+curl http://localhost:8000/api/v1/schemes/pm-kisan
 ```
 
 ---
@@ -310,7 +308,6 @@ curl https://yojana-backend.onrender.com/api/v1/schemes/pm-kisan
 - ~43% of eligibility rules are `custom` type (opaque criteria the LLM couldn't structure). Stage 3 partially compensates via raw text reasoning, but structured matching is more reliable.
 - Stage 3 latency (~45s) is mitigated by SSE streaming but still noticeable in the chat interface.
 - Semantic search recall is moderate (Recall @10 ~0.50) — limited by dataset size (334 schemes) and search_text content quality.
-- Render free tier spins down after inactivity — first request may be slow (~30s cold start).
 - Only 53 Karnataka state-specific schemes (limited public data availability).
 
 **Future work:**
